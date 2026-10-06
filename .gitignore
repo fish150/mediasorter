@@ -147,3 +147,36 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Expo
+.expo/
+web-build/
+
+# Python (data pipeline)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data and models (large, regenerable)
+data-pipeline/raw/
+data-pipeline/cache/
+*.parquet
+*.npy
+*.sqlite
+
+# Native build output
+ios/Pods/
+android/.gradle/
+android/build/
+*.apk
+*.ipa
+
+# OS junk
+.DS_Store
+Thumbs.db
