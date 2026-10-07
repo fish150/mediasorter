@@ -14,9 +14,9 @@ import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 export default function HomeScreen() {
   
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.headerBar}>
+        <View style={styles.headerBar}>
           <Text style={styles.headerText}>
             profile
           </Text>
@@ -28,9 +28,16 @@ export default function HomeScreen() {
           <Text style={styles.headerText}>
             X
           </Text>
-
-
-        </ThemedView>
+        </View>
+        <View style={styles.mediaTitle}>
+          <Text style={styles.icon}>
+            📽
+          </Text>
+          <Text style={styles.mediaTitleText}>
+            JOKER
+          </Text>
+          
+        </View>
         
          
 
@@ -39,7 +46,7 @@ export default function HomeScreen() {
         
         {Platform.OS === 'web' && <WebBadge />}
       </SafeAreaView>
-    </ThemedView>
+    </View>
   );
 }
 
@@ -48,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: 'rgba(0,0,0,1)',
+    backgroundColor: '#E0DDD2',
   },
   headerBar: {
     flexDirection: 'row',
@@ -58,9 +65,24 @@ const styles = StyleSheet.create({
   },
 
   headerText: {
-  color: '#ffffff',
+  color: 'rgb(0, 0, 0)',
   fontSize: 32,
-},
+  },
+  mediaTitle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf:'flex-start',
+    gap: 40,
+  },
+  icon: {
+    fontSize:52,
+    paddingLeft:15,
+  },
+  mediaTitleText: {
+    color: 'rgb(0, 0, 0)', 
+    fontSize: 36,
+    letterSpacing: 2,
+  },
 
   safeArea: {
     flex: 1,
