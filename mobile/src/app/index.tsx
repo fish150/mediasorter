@@ -12,7 +12,7 @@ import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
 
 export default function HomeScreen() {
-  
+const tags = ['horror', 'thriller', 'drama', 'crime'];
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -43,6 +43,21 @@ export default function HomeScreen() {
           <Image source ={require('../../assets/myimages/images.jpg')}
           style={styles.mediaImage}
           resizeMode="cover"/>
+        </View>
+
+        <Text style={styles.infoText}>
+          2019 · Todd Phillips · movie
+        </Text>
+
+        <View style={styles.chipHolder}>
+          {tags.map((tag) => (
+          <View key={tag} style={styles.chip}>
+            <Text style={styles.chipText}>
+              {tag}
+            </Text>
+          </View>
+          ))}
+          
         </View>
         
          
@@ -80,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf:'flex-start',
     gap: 20,
-    marginBottom:15,
+    marginBottom:10,
     
   },
 
@@ -91,6 +106,8 @@ const styles = StyleSheet.create({
     borderRadius: 11, 
     alignSelf: 'center', 
     overflow: 'hidden',
+    marginBottom:5,
+    
   },
 
   mediaImage:{
@@ -118,25 +135,29 @@ const styles = StyleSheet.create({
     paddingBottom: BottomTabInset + Spacing.three,
     maxWidth: MaxContentWidth,
   },
-  heroSection: {
-    alignItems: 'center',
+
+  infoText: {
+    color: 'rgb(0, 0, 0)',
+    fontSize: 20,
+    textAlign: 'center', 
+  },
+
+  chip: {
+    paddingHorizontal: 9,
+    paddingVertical:4,
+    borderRadius:10,
+    backgroundColor:'#B5B1A0', 
+
+  },
+  chipText: {
+  fontSize: 14,
+  color: '#000',
+},
+  chipHolder: {
+    flexDirection: "row",
+    flexWrap: 'wrap',
     justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    gap: 10,
   },
-  title: {
-    textAlign: 'center',
-    
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
+  
 });
