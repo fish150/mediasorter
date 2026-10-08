@@ -180,3 +180,6 @@ android/build/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Local poster images (copyrighted, don't commit)
+mobile/assets/myimages/

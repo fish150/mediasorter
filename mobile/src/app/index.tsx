@@ -38,6 +38,12 @@ export default function HomeScreen() {
           </Text>
           
         </View>
+
+        <View style={styles.mediaImageBox}>
+          <Image source ={require('../../assets/myimages/images.jpg')}
+          style={styles.mediaImage}
+          resizeMode="cover"/>
+        </View>
         
          
 
@@ -62,26 +68,46 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'stretch',
+    marginBottom:24,
   },
 
   headerText: {
   color: 'rgb(0, 0, 0)',
-  fontSize: 32,
+  fontSize: 24,
   },
   mediaTitle: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf:'flex-start',
-    gap: 40,
+    gap: 20,
+    marginBottom:15,
+    
+  },
+
+  mediaImageBox: {
+    width:250,
+    height:375,
+    backgroundColor: 'rgb(117, 117, 117)', 
+    borderRadius: 11, 
+    alignSelf: 'center', 
+    overflow: 'hidden',
+  },
+
+  mediaImage:{
+    width: '100%',
+    height: '100%',
+
+    
   },
   icon: {
     fontSize:52,
-    paddingLeft:15,
+    paddingLeft:0,
+    
   },
   mediaTitleText: {
     color: 'rgb(0, 0, 0)', 
-    fontSize: 36,
-    letterSpacing: 2,
+    fontSize: 40,
+    letterSpacing: 15,
   },
 
   safeArea: {
