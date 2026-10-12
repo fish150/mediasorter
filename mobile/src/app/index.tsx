@@ -159,5 +159,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
   },
+
+  descBox: {
+    backgroundColor: '#1B1611',
+    borderRadius: 17,
+    padding: 5,
+    alignSelf: 'stretch',
+  },
+  descText: {
+    color:'#E0DDD2',
+    fontSize: 17,   
+  },
+  buttonSetup: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignSelf: 'stretch',
+  },
   
 });
