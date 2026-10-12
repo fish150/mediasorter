@@ -19,3 +19,10 @@ Log #3, 10/7/2026, ~1hr
     -added chips to tag the media 
 
 ------------------------------------------------------------------
+
+Log #4, 10/11/2026, ~15 min
+    -just added styles for description box and buttons,
+    -planning on making desc box scrollable
+    -wasn't able to do much because busy and out of town
+
+------------------------------------------------------------------
