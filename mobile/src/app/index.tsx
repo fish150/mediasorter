@@ -59,22 +59,32 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
           ))}
           
         </View>
+
+        <View style={styles.descBox}>
+          <Text style={styles.descText}>
+            description description description description description descri 
+            description description description description description descr
+            description description description description description descrip
+            
+          </Text>
+        </View>
+
         <View style={styles.buttonSetup}>
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('s')}>
             <Text style={styles.buttonText}>
-              seen
+              S
             </Text>
           </Pressable>
 
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('w')}>
             <Text style={styles.buttonText}>
-              not sure
+              W
             </Text>
           </Pressable>
 
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('n')}>
             <Text style={styles.buttonText}>
-              want to see
+              N
             </Text>
           </Pressable>
         </View>
@@ -183,10 +193,12 @@ const styles = StyleSheet.create({
     borderRadius: 17,
     padding: 5,
     alignSelf: 'stretch',
+    
   },
   descText: {
     color:'#E0DDD2',
-    fontSize: 17,   
+    fontSize: 17, 
+    textAlign: 'center',  
   },
   buttonSetup: {
     flexDirection: 'row',
