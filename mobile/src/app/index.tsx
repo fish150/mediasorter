@@ -9,12 +9,13 @@ import { View, Text,  Pressable, Image } from 'react-native'
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import {LinearGradient} from 'expo-linear-gradient';
 
 
 export default function HomeScreen() {
 const tags = ['horror', 'thriller', 'drama', 'crime'];
   return (
-    <View style={styles.container}>
+    <LinearGradient colors={['#E0DDD2', '#ACA896', '#7B5D2B', '#47371D', '#171410' ]} locations={[0,.35,.5,.65, .85,1]} style = {styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.headerBar}>
           <Text style={styles.headerText}>
@@ -95,7 +96,7 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
         
         {Platform.OS === 'web' && <WebBadge />}
       </SafeAreaView>
-    </View>
+    </LinearGradient>
   );
 }
 
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: '#E0DDD2',
+    
   },
   headerBar: {
     flexDirection: 'row',
