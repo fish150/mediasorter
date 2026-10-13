@@ -59,7 +59,25 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
           ))}
           
         </View>
-        
+        <View style={styles.buttonSetup}>
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+            <Text style={styles.buttonText}>
+              seen
+            </Text>
+          </Pressable>
+
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+            <Text style={styles.buttonText}>
+              not sure
+            </Text>
+          </Pressable>
+
+          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('seen')}>
+            <Text style={styles.buttonText}>
+              want to see
+            </Text>
+          </Pressable>
+        </View>
          
 
         
@@ -175,5 +193,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignSelf: 'stretch',
   },
+
+  button: {
+    paddingVertical: 14,
+    paddingHorizontal:30,
+    borderRadius:11,
+    backgroundColor:'#7B5D2B',  
+  },
+
+  buttonPressed: {
+    backgroundColor:'#5c4620',
+    transform: [{scale : 0.95}],
+  }, 
+
+  buttonText: {
+    fontSize: 20,
+    color:'#1B1611', 
+  }
   
 });
