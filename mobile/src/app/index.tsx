@@ -20,21 +20,36 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.headerBar}>
           <Text style={styles.headerText}>
-            profile
-          </Text>
-
-          <Text style={styles.headerText}>
             12/100
           </Text>
+          <View style={styles.headerIcons}>
+
+            <Pressable  onPress={() => console.log('profile')} hitSlop={12} accessibilityLabel="Profile" style={({ pressed }) => [pressed && styles.iconPressed]}>
+            
+              <Ionicons name="person" size={20} color="#000" />
+            
+          </Pressable>
+          <Pressable  onPress={() => console.log('home')} hitSlop={12} accessibilityLabel="Home" style={({ pressed }) => [pressed && styles.iconPressed]}>
+            
+              <Ionicons name="home" size={20} color="#000" />
+            
+          </Pressable>
+
+          </View>
           
-          <Text style={styles.headerText}>
-            X
-          </Text>
+          
+          
+          <View style={[styles.headerIcons, styles.headerRight]}>
+          
+          <Pressable  onPress={() => console.log('close')} hitSlop={12} accessibilityLabel="Close" style={({ pressed }) => [pressed && styles.iconPressed]}>
+            
+              <Ionicons name="close" size={25} color="#000" />
+            
+          </Pressable>
+          </View>
         </View>
         <View style={styles.mediaTitle}>
-          <Text style={styles.icon}>
-            📽
-          </Text>
+            <Ionicons name="film" size={60} color="#000" />
           <Text style={styles.mediaTitleText}>
             JOKER
           </Text>
@@ -67,20 +82,21 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
             description description description description description descri 
             description description description description description descr
             description description description description description descrip
+            description description descripdescription description descrip
             
           </Text>
         </View>
 
         <View style={styles.buttonSetup}>
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('s')}>
+          <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('s')}>
             <Ionicons name="eye" size={28} color="#000" />
           </Pressable>
 
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('w')}>
+          <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('w')}>
             <Ionicons name="bookmark" size={28} color="#000" />
           </Pressable>
 
-          <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('n')}>
+          <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('n')}>
             
               <Ionicons name="eye-off" size={28} color="#000" />
             
@@ -109,12 +125,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf: 'stretch',
-    marginBottom:24,
+    marginBottom:10,
   },
 
   headerText: {
   color: 'rgb(0, 0, 0)',
-  fontSize: 24,
+  fontSize: 32,
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  textAlign: 'center',
+},
+
+  headerIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap:30, 
+    flex:1,
+  },
+  headerRight: {
+    justifyContent:'flex-end',
+  },
+  iconPressed: {
+    opacity:.5,
   },
   mediaTitle: {
     flexDirection: 'row',
@@ -208,10 +241,19 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal:30,
     borderRadius:11,
+      
+  },
+
+  
+
+  swipeButton: {
+    paddingVertical: 14,
+    paddingHorizontal:30,
+    borderRadius:11,
     backgroundColor:'#7B5D2B',  
   },
 
-  buttonPressed: {
+  swipebuttonPressed: {
     backgroundColor:'#5c4620',
     transform: [{scale : 0.95}],
   }, 
