@@ -10,6 +10,7 @@ import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import {LinearGradient} from 'expo-linear-gradient';
+import {Ionicons} from '@expo/vector-icons'; 
 
 
 export default function HomeScreen() {
@@ -72,21 +73,17 @@ const tags = ['horror', 'thriller', 'drama', 'crime'];
 
         <View style={styles.buttonSetup}>
           <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('s')}>
-            <Text style={styles.buttonText}>
-              S
-            </Text>
+            <Ionicons name="eye" size={28} color="#000" />
           </Pressable>
 
           <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('w')}>
-            <Text style={styles.buttonText}>
-              W
-            </Text>
+            <Ionicons name="bookmark" size={28} color="#000" />
           </Pressable>
 
           <Pressable style={({ pressed } ) => [styles.button, pressed && styles.buttonPressed]} onPress={() => console.log('n')}>
-            <Text style={styles.buttonText}>
-              N
-            </Text>
+            
+              <Ionicons name="eye-off" size={28} color="#000" />
+            
           </Pressable>
         </View>
          
