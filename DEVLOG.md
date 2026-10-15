@@ -35,3 +35,11 @@ Log #5, 10/12/2026, ~1hr
     -next time i want to change text font, change placeholders to actual images, possibly change movie stat to white or lighter tone
 
 ------------------------------------------------------------------
+
+Log #6, 10/14/2026, ~3hr
+    -tons of progress today! i added a bunch of icons, made them pressable
+    -gave middle button meaning
+    -made a mediacard component that can now allow me to make multiple cards easily
+    -made the description box scrollable 
+
+------------------------------------------------------------------
