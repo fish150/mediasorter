@@ -43,3 +43,13 @@ Log #6, 10/14/2026, ~3hr
     -made the description box scrollable 
 
 ------------------------------------------------------------------
+
+Log #7, 10/18-19/2026, ~2hr
+    -made it so that you can cycle through multiple mediacards!
+    -each card has buttons custom to the cards colors
+    -title text and image size no longer moves buttons
+    -moves to next card when button is clicked
+
+    -next time, i hope to make the counter at the top work (display the index+1) and also store all the watched/bookmarked movies
+
+------------------------------------------------------------------
