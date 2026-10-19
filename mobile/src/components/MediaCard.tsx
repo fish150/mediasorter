@@ -86,7 +86,7 @@ export default function MediaCard({title,infoLine, descript, mediaTags, imageRat
         
                 <View style={styles.chipHolder}>
                   {mediaTags.map((tag) => (
-                  <View key={tag} style={styles.chip}>
+                  <View key={tag} style={[styles.chip, {backgroundColor:colors[1]} ]}>
                     <Text style={styles.chipText}>
                       {tag}
                     </Text>
@@ -232,7 +232,7 @@ export default function MediaCard({title,infoLine, descript, mediaTags, imageRat
         paddingHorizontal: 9,
         paddingVertical:4,
         borderRadius:10,
-        backgroundColor:'#B5B1A0', 
+        
         },
 
         chipText: {

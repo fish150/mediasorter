@@ -46,7 +46,7 @@ Log #6, 10/14/2026, ~3hr
 
 Log #7, 10/18-19/2026, ~2hr
     -made it so that you can cycle through multiple mediacards!
-    -each card has buttons custom to the cards colors
+    -each card has buttons and chips custom to the cards colors
     -title text and image size no longer moves buttons
     -moves to next card when button is clicked
 
