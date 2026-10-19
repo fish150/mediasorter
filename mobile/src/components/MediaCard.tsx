@@ -19,6 +19,7 @@ type MediaCardProps = {
     infoLine: string;
     descript: string; 
     mediaTags: readonly string[];
+    imageRatio:number;
     image: ImageSourcePropType;
     iconName: keyof typeof Ionicons.glyphMap;
     colors:readonly [string, string, ...string[]];
@@ -27,7 +28,7 @@ type MediaCardProps = {
 
 }
 
-export default function MediaCard({title,infoLine, descript, mediaTags, image, iconName, colors, onAnswer}: MediaCardProps) {
+export default function MediaCard({title,infoLine, descript, mediaTags, imageRatio, image, iconName, colors, onAnswer}: MediaCardProps) {
     
     return (
         
@@ -65,19 +66,21 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
                 </View>
                 <View style={styles.mediaTitle}>
                     <Ionicons name={iconName} size={60} color="#000" />
-                  <Text style={styles.mediaTitleText}>
+                  <Text style={styles.mediaTitleText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={1}>
                     {title}
                   </Text>
                   
                 </View>
+                <View style={styles.imageArea}>
+
+                    <View style={[styles.mediaImageBox, {aspectRatio:imageRatio}]}>
+                      <Image source ={image}
+                      style={styles.mediaImage}
+                      resizeMode="cover"/>
+                    </View>
+                </View> 
         
-                <View style={styles.mediaImageBox}>
-                  <Image source ={image}
-                  style={styles.mediaImage}
-                  resizeMode="cover"/>
-                </View>
-        
-                <Text style={styles.infoText}>
+                <Text style={styles.infoText}  numberOfLines={1} >
                   {infoLine}
                 </Text>
         
@@ -92,7 +95,7 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
                   
                 </View>
         
-                <View style={styles.descBox}>
+                <View style={[styles.descBox, {backgroundColor:colors[4]}]}>
                   <ScrollView>
                     <Text style={styles.descText}>
                         {descript}
@@ -102,15 +105,15 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
                
         
                 <View style={styles.buttonSetup}>
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('s'); onAnswer();} }>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('s'); onAnswer();} }>
                     <Ionicons name="eye" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('w'); onAnswer(); }}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton, {backgroundColor:colors[2]},pressed && styles.swipebuttonPressed]} onPress={() => {console.log('w'); onAnswer(); }}>
                     <Ionicons name="bookmark" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('n'); onAnswer(); }}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('n'); onAnswer(); }}>
                     
                       <Ionicons name="eye-off" size={28} color="#000" />
                     
@@ -172,9 +175,14 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
         mediaTitle: {
         flexDirection: 'row',
         alignItems: 'center',
-        alignSelf:'flex-start',
+        alignSelf:'stretch',
         gap: 20,
         marginBottom:10,
+        },
+
+        imageArea: {
+          height:375,
+          justifyContent:'center',
         },
 
         mediaImageBox: {
@@ -201,7 +209,8 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
         mediaTitleText: {
         color: 'rgb(0, 0, 0)', 
         fontSize: 40,
-        letterSpacing: 5,
+        letterSpacing: 1,
+        flexShrink:1,
         },
 
         safeArea: {
@@ -273,11 +282,11 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
         paddingVertical: 14,
         paddingHorizontal:30,
         borderRadius:11,
-        backgroundColor:'#7B5D2B',  
+          
         },
 
         swipebuttonPressed: {
-        backgroundColor:'#5c4620',
+        opacity:.7,
         transform: [{scale : 0.95}],
         }, 
 
