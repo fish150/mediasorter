@@ -18,15 +18,16 @@ type MediaCardProps = {
     
     infoLine: string;
     descript: string; 
-    mediaTags: string[];
+    mediaTags: readonly string[];
     image: ImageSourcePropType;
     iconName: keyof typeof Ionicons.glyphMap;
     colors:readonly [string, string, ...string[]];
+    onAnswer: () => void;
 
 
 }
 
-export default function MediaCard({title,infoLine, descript, mediaTags, image, iconName, colors}: MediaCardProps) {
+export default function MediaCard({title,infoLine, descript, mediaTags, image, iconName, colors, onAnswer}: MediaCardProps) {
     
     return (
         
@@ -101,15 +102,15 @@ export default function MediaCard({title,infoLine, descript, mediaTags, image, i
                
         
                 <View style={styles.buttonSetup}>
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('s')}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('s'); onAnswer();} }>
                     <Ionicons name="eye" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('w')}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('w'); onAnswer(); }}>
                     <Ionicons name="bookmark" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => console.log('n')}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('n'); onAnswer(); }}>
                     
                       <Ionicons name="eye-off" size={28} color="#000" />
                     
