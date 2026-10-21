@@ -1,5 +1,6 @@
 import MediaCard from "@/components/MediaCard";
 import {useState} from 'react'; 
+import {Text, View} from 'react-native'; 
 
 const items = [{
       title:"JOKER",
@@ -47,7 +48,25 @@ const items = [{
 ] as const; 
 export default function HomeScreen() {
   const [index, setIndex] = useState(0);
+  const [answers, setAnswers] =useState<{ title: string; answer: string}[]>([]);
+  
+  if (index >= items.length){
+    return ( 
+      <View style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#E0DDD2'}}>
+      
+      <Text style={{fontSize: 70}}> 
+        All done!
+      </Text>
+
+      </View> 
+    );
+  }
   const item = items[index];
+  function handleAnswer( answer: string) {
+    setAnswers([...answers, {title: item.title, answer}]);
+    setIndex(index+1);
+  }
+  console.log(answers);
 
   return (
     <MediaCard
@@ -59,7 +78,9 @@ export default function HomeScreen() {
       image={item.image}
       iconName={item.iconName}
       colors={item.colors}
-      onAnswer={()=>setIndex((index+1)%items.length)}
+      onAnswer={handleAnswer}
+      current= {index+1}
+      total={items.length}
       />
 
 

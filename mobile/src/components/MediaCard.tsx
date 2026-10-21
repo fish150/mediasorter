@@ -23,20 +23,22 @@ type MediaCardProps = {
     image: ImageSourcePropType;
     iconName: keyof typeof Ionicons.glyphMap;
     colors:readonly [string, string, ...string[]];
-    onAnswer: () => void;
+    onAnswer: (answer: string) => void;
+    current: number;
+    total:number;
 
 
 }
 
-export default function MediaCard({title,infoLine, descript, mediaTags, imageRatio, image, iconName, colors, onAnswer}: MediaCardProps) {
+export default function MediaCard({title,infoLine, descript, mediaTags, imageRatio, image, iconName, colors, onAnswer, current, total}: MediaCardProps) {
     
     return (
         
-            <LinearGradient colors={colors} locations={[0,.35,.5,.65, .85,1]} style = {styles.container}>
+            <LinearGradient colors={colors} locations={[0,.35,.5,.65,1]} style = {styles.container}>
               <SafeAreaView style={styles.safeArea}>
                 <View style={styles.headerBar}>
                   <Text style={styles.headerText}>
-                    12/100
+                    {current}/{total}
                   </Text>
                   <View style={styles.headerIcons}>
         
@@ -66,7 +68,7 @@ export default function MediaCard({title,infoLine, descript, mediaTags, imageRat
                 </View>
                 <View style={styles.mediaTitle}>
                     <Ionicons name={iconName} size={60} color="#000" />
-                  <Text style={styles.mediaTitleText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={1}>
+                  <Text style={styles.mediaTitleText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={.5}>
                     {title}
                   </Text>
                   
@@ -105,15 +107,15 @@ export default function MediaCard({title,infoLine, descript, mediaTags, imageRat
                
         
                 <View style={styles.buttonSetup}>
-                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('s'); onAnswer();} }>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('s'); onAnswer('seen');} }>
                     <Ionicons name="eye" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton, {backgroundColor:colors[2]},pressed && styles.swipebuttonPressed]} onPress={() => {console.log('w'); onAnswer(); }}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton, {backgroundColor:colors[2]},pressed && styles.swipebuttonPressed]} onPress={() => {console.log('w'); onAnswer('want_to_see'); }}>
                     <Ionicons name="bookmark" size={28} color="#000" />
                   </Pressable>
         
-                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('n'); onAnswer(); }}>
+                  <Pressable style={({ pressed } ) => [styles.swipeButton,{backgroundColor:colors[2]}, pressed && styles.swipebuttonPressed]} onPress={() => {console.log('n'); onAnswer('not_seen'); }}>
                     
                       <Ionicons name="eye-off" size={28} color="#000" />
                     
