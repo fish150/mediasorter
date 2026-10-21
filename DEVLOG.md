@@ -53,3 +53,15 @@ Log #7, 10/18-19/2026, ~2hr
     -next time, i hope to make the counter at the top work (display the index+1) and also store all the watched/bookmarked movies
 
 ------------------------------------------------------------------
+
+Log #8, 10/20-21/2026, 30 min
+    -didn't spend much time today but got a decent bit of functionality done
+    -made it so that the counter actually works and moves to next phase when complete
+    -logged each of users answers
+    -was having issues making sure all changes were made in all files, 
+    -all done screen was black but beacuse i didnt set color of text or bg
+
+    -next time, i hope to make the like dislike phase, and possibly include a skip button? 
+    -deciding if i want to look the same as mediacard or not, may play around in figma a bit
+
+------------------------------------------------------------------
